@@ -1,0 +1,24 @@
+<div class="h-full flex flex-col">
+  <div class="p-6">
+    <h1 class="text-2xl font-bold text-teal-800 tracking-tight">NewSP</h1>
+    <p class="text-xs text-gray-500 mt-1">Pharmaceuticas & Tiendas de conveniencia</p>
+  </div>
+
+  <nav class="flex-1 px-4 space-y-2 mt-4">
+    <a routerLink="/dashboard" routerLinkActive="bg-indigo-50 text-indigo-700 font-semibold" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 rounded-lg hover:bg-gray-50 transition-colors">
+      <span>📊</span> Dashboard
+    </a>
+    <a routerLink="/inventory" routerLinkActive="bg-indigo-50 text-indigo-700 font-semibold" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 rounded-lg hover:bg-gray-50 transition-colors">
+      <span>📦</span> Inventory
+    </a>
+    <a routerLink="/alerts" routerLinkActive="bg-indigo-50 text-indigo-700 font-semibold" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 rounded-lg hover:bg-gray-50 transition-colors">
+      <span>🔔</span> Expiration Alerts
+    </a>
+  </nav>
+
+  <div class="p-4 border-t border-gray-100">
+    <a routerLink="/add-product" class="flex justify-center items-center gap-2 w-full bg-teal-700 text-white px-4 py-2 rounded-md hover:bg-teal-800 transition">
+      + Add New Item
+    </a>
+  </div>
+</div>

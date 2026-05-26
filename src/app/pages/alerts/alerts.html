@@ -1,0 +1,60 @@
+<div class="p-8">
+  <div class="flex justify-between items-center mb-8">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-800">Supervisión de Alertas</h1>
+      <p class="text-gray-500 text-sm">Revisión de artículos que requieren acción inmediata o monitoreo.</p>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-1.5 h-5 bg-red-600 rounded-full"></div>
+      <h2 class="text-sm font-bold text-gray-800 uppercase tracking-wider">Stock Caducado <span class="bg-red-100 text-red-700 px-2.5 py-0.5 rounded-full text-xs ml-2 font-semibold">{{ expiredItems.length }} artículos</span></h2>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <table class="w-full text-left text-sm text-gray-600">
+        <thead class="bg-gray-50/50 text-xs uppercase border-b border-gray-100 text-gray-500">
+          <tr>
+            <th class="px-5 py-4">Producto y Lote</th>
+            <th class="px-5 py-4">SKU</th>
+            <th class="px-5 py-4">Fecha Caducidad</th>
+            <th class="px-5 py-4">Días</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr *ngFor="let item of expiredItems" class="hover:bg-gray-50/50">
+            <td class="px-5 py-4">
+              <div class="font-medium text-gray-900">{{ item.name }}</div>
+              <div class="text-xs text-gray-400 mt-0.5">Lote: {{ item.batch }}</div>
+            </td>
+            <td class="px-5 py-4 text-gray-500">{{ item.sku }}</td>
+            <td class="px-5 py-4 font-semibold text-gray-700">{{ item.expiry }}</td>
+            <td class="px-5 py-4 text-red-600 font-medium">Ya caducó</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div>
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-1.5 h-5 bg-orange-500 rounded-full"></div>
+      <h2 class="text-sm font-bold text-gray-800 uppercase tracking-wider">Artículos Críticos (< 7 Días) <span class="bg-orange-100 text-orange-700 px-2.5 py-0.5 rounded-full text-xs ml-2 font-semibold">{{ criticalItems.length }} artículos</span></h2>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <table class="w-full text-left text-sm text-gray-600">
+        <tbody class="divide-y divide-gray-100">
+          <tr *ngFor="let item of criticalItems" class="hover:bg-gray-50/50">
+            <td class="px-5 py-4 w-1/3">
+              <div class="font-medium text-gray-900">{{ item.name }}</div>
+              <div class="text-xs text-gray-400 mt-0.5">Lote: {{ item.batch }}</div>
+            </td>
+            <td class="px-5 py-4 text-gray-500 w-1/4">{{ item.sku }}</td>
+            <td class="px-5 py-4 font-semibold text-gray-700 w-1/4">{{ item.expiry }}</td>
+            <td class="px-5 py-4 text-orange-600 font-medium">Caduca en {{ item.daysLeft }} días</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
